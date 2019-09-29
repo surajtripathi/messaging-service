@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="">
+  <changeLog>
+    <sql>
+      create table chat
+      (
+        id TEXT not null primary key,
+        name TEXT not null,
+        type TEXT not null
+      );
+    </sql>
+  </changeLog>
+  <changeLog>
+    <sql>
+      insert into chat values ('f1ae9e54-aaa8-4b93-935e-78d9ec4fba24', '', 'p2p')
+      ('ed9fffab-69de-46e6-bd1a-62c2b7f41a34', 'Party night', 'group');
+    </sql>
+  </changeLog>
+  <changeLog>
+    <sql>
+      create table chat_user_mapper (
+        chat_id TEXT not null,
+        user_id TEXT not null,
+        primary key (chat_id, user_id),
+        foreign key (chat_id) references chat(id)
+      )
+    </sql>
+  </changeLog>
+  <changeLog>
+    <sql>
+      create table messages (
+      id TEXT not null primary key,
+      sender_id TEXT not null,
+      chat_id TEXT not null,
+      message TEXT not null,
+      type TEXT not null,
+      pagination_id BIGSERIAL,
+      foreign key (chat_id) references chat(id)
+      );
+      create index message_chat_index on messages(chat_id);
+    </sql>
+  </changeLog>
+</databaseChangeLog>

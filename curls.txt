@@ -1,0 +1,57 @@
+http://localhost:8080/chats?userID=1
+http://localhost:8080/messages?chatID=4a10bbb4-2cf5-4a16-bec3-5ef0a12211ae&pageSize=2&nextPageID=5
+
+curl -X GET \
+  http://localhost:8080/messages \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 111' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: localhost:8080' \
+  -H 'Postman-Token: 7a774bc2-ed41-4f03-94c5-a897cdb7a34b,b2f06a25-b609-48d7-a397-ff1c3f69bbd4' \
+  -H 'User-Agent: PostmanRuntime/7.17.1' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"chatID": "d381d687-20d9-4d2d-9896-9b253750fcd2",
+	"senderID": "2",
+	"message": "From ui",
+	"type": "TEXT"
+}'
+
+curl -X POST \
+  http://localhost:8080/chats \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 43' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: localhost:8080' \
+  -H 'Postman-Token: 6a5f9072-c4f6-4791-acbb-bd190f6a2eeb,18cd329e-c427-4ca4-adc8-e08a681f0058' \
+  -H 'User-Agent: PostmanRuntime/7.17.1' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"name": "Individual",
+	"type": "GROUP"
+}'
+
+curl -X POST \
+  http://localhost:8080/chatusermappers \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 80' \
+  -H 'Content-Type: application/json' \
+  -H 'Host: localhost:8080' \
+  -H 'Postman-Token: 6c781714-68a3-42c7-987d-a845d5429cfd,f16ac5ff-330d-4b73-a39e-a5bc3d6c31cf' \
+  -H 'User-Agent: PostmanRuntime/7.17.1' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"chat": {
+		"id": "4a10bbb4-2cf5-4a16-bec3-5ef0a12211ae"
+	},
+	"userID": "3"
+}'
